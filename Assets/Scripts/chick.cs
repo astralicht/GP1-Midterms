@@ -31,6 +31,16 @@ public class chick : MonoBehaviour
         }
 
         Destroy(this.gameObject);
-        Instantiate(forGrow, transform.position, Quaternion.identity);
+        hud.incrementChickCount(-1);
+        Instantiate(forGrow, transform.position, Random.rotation);
+
+        if (forGrow == next)
+        {
+            hud.incrementHenCount(1);
+        }
+        else if (forGrow == nextAlternative)
+        {
+            hud.incrementRoosterCount(1);
+        }
     }
 }

@@ -19,6 +19,8 @@ public class egg : MonoBehaviour
     void Hatch()
     {
         Destroy(this.gameObject);
-        Instantiate(next, transform.position, Quaternion.identity);
+        hud.incrementEggCount(-1);
+        Instantiate(next, transform.position, Random.rotation);
+        hud.incrementChickCount(1);
     }
 }

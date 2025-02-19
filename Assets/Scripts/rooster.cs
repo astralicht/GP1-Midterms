@@ -17,5 +17,6 @@ public class rooster : MonoBehaviour
     private void Die()
     {
         Destroy(this.gameObject);
+        hud.incrementRoosterCount(-1);
     }
 }

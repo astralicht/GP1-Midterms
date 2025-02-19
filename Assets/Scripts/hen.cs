@@ -1,8 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class hen : MonoBehaviour
 {
     public GameObject egg;
+    private int rand;
+    private int i;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,14 +23,17 @@ public class hen : MonoBehaviour
     private void Lay()
     {
         GameObject newEgg;
-        for (int i = 0; i < Random.Range(2, 11); i++)
+        rand = Random.Range(2, 11);
+        for (i = 0; i < rand; i++)
         {
             newEgg = Instantiate(egg, transform.position, Random.rotation);
         }
+        hud.incrementEggCount(rand);
     }
 
     private void Die()
     {
         Destroy(this.gameObject);
+        hud.incrementHenCount(-1);
     }
 }
